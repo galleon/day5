@@ -18,5 +18,8 @@ build/
 # macOS
 .DS_Store
 
+# Scratch files
+lc1.py
+
 # Streamlit
 .streamlit/secrets.toml

@@ -1,0 +1,24 @@
+services:
+  api:
+    image: europe-west1-docker.pkg.dev/batch2288/taxifare/taxifare-api:dev
+    ports:
+      - "8080:8080"
+    environment:
+      - MODEL_TARGET=${MODEL_TARGET}
+      - BUCKET_NAME=${BUCKET_NAME}
+      - GCP_PROJECT=${GCP_PROJECT}
+      - DATA_SIZE=${DATA_SIZE}
+      - CHUNK_SIZE=${CHUNK_SIZE}
+    volumes:
+      - ~/.config/gcloud/application_default_credentials.json:/tmp/credentials.json:ro
+    env_file:
+      - .env
+
+  streamlit:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8080
+    depends_on:
+      - api

@@ -9,10 +9,7 @@ description = "Day 5 Streamlit App"
 license = { text = "MIT" }
 authors = [{ name = "galleon", email = "guillaume.alleon@gmail.com" }]
 requires-python = ">=3.10"
-dynamic = ["dependencies"]
-
-[tool.setuptools.dynamic]
-dependencies = { file = ["requirements.txt"] }
+dependencies = ["streamlit"]
 
 [tool.setuptools.packages.find]
 where = ["."]
