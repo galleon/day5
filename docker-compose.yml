@@ -9,6 +9,8 @@ services:
       - GCP_PROJECT=${GCP_PROJECT}
       - DATA_SIZE=${DATA_SIZE}
       - CHUNK_SIZE=${CHUNK_SIZE}
+      - GOOGLE_APPLICATION_CREDENTIALS=/tmp/credentials.json
+      - GOOGLE_CLOUD_PROJECT=${GCP_PROJECT}
     volumes:
       - ~/.config/gcloud/application_default_credentials.json:/tmp/credentials.json:ro
     env_file:

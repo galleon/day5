@@ -98,7 +98,12 @@ if st.session_state.get("fare") is not None:
     st.success(f"Estimated fare: **${st.session_state['fare']:.2f}**")
 
 # Map
-m = folium.Map(location=NYC_CENTER, zoom_start=12, tiles="CartoDB positron")
+m = folium.Map(
+    location=NYC_CENTER,
+    zoom_start=12,
+    tiles="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+    attr="CartoDB",
+)
 
 if "pickup_coords" in st.session_state:
     folium.Marker(
@@ -126,4 +131,4 @@ if st.session_state.get("route"):
         st.session_state["dropoff_coords"],
     ])
 
-st_folium(m, width="100%", height=520, returned_objects=[])
+st_folium(m, use_container_width=True, height=520, returned_objects=[])

@@ -10,9 +10,9 @@ license = { text = "MIT" }
 authors = [{ name = "galleon", email = "guillaume.alleon@gmail.com" }]
 requires-python = ">=3.10"
 dependencies = [
-    "streamlit",
-    "folium",
-    "streamlit-folium",
+    "streamlit>=1.35",
+    "folium>=0.17",
+    "streamlit-folium>=0.20",
     "geopy",
     "requests",
 ]

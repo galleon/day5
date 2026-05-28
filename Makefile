@@ -4,15 +4,15 @@ PYTHON := $(CURDIR)/.venv310/bin/python
 STREAMLIT := $(CURDIR)/.venv310/bin/streamlit
 
 #################### STREAMLIT ####################
-run:
+run_local:
 	$(STREAMLIT) run app/app.py
 
 #################### DOCKER ####################
+run:
+	docker compose up --build
+
 docker_build:
 	docker build -t day5-streamlit:dev .
-
-docker_up:
-	docker compose up --build
 
 docker_down:
 	docker compose down
