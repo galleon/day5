@@ -1,0 +1,22 @@
+# Environment
+.env
+.envrc
+.venv310/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.coverage
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Streamlit
+.streamlit/secrets.toml
