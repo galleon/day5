@@ -33,6 +33,12 @@ deploy_api:
 		--set-env-vars MODEL_TARGET=${MODEL_TARGET},BUCKET_NAME=${BUCKET_NAME},GCP_PROJECT=${GCP_PROJECT},DATA_SIZE=${DATA_SIZE},CHUNK_SIZE=${CHUNK_SIZE} \
 		--allow-unauthenticated
 
+stop_api:
+	gcloud run services delete taxifare-api \
+		--project ${GCP_PROJECT} \
+		--region ${GCP_REGION} \
+		--quiet
+
 # Fetch the live Cloud Run URL and write it to .streamlit/secrets.toml
 # so the Streamlit app picks it up both locally and on Streamlit Cloud
 streamlit_secrets:
