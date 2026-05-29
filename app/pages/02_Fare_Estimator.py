@@ -73,7 +73,10 @@ if st.button("Estimate Fare", type="primary", use_container_width=True):
             st.session_state["route"] = None
             st.warning(f"Could not fetch route: {e}")
 
-    api_url = st.secrets.get("API_URL", os.environ.get("API_URL", "http://localhost:8080"))
+    try:
+        api_url = st.secrets["API_URL"]
+    except Exception:
+        api_url = os.environ.get("API_URL", "http://localhost:8080")
     with st.spinner("Estimating fare..."):
         try:
             resp = requests.get(
