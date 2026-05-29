@@ -1,4 +1,7 @@
 .DEFAULT_GOAL := default
+-include .env
+export
+
 export VIRTUAL_ENV := $(CURDIR)/.venv310
 PYTHON := $(CURDIR)/.venv310/bin/python
 STREAMLIT := $(CURDIR)/.venv310/bin/streamlit
@@ -18,9 +21,12 @@ docker_down:
 	docker compose down
 
 #################### CLOUD RUN ####################
+push_api:
+	docker push ${GAR_IMAGE}:prod
+
 deploy_api:
 	gcloud run deploy taxifare-api \
-		--image ${GAR_IMAGE}:dev \
+		--image ${GAR_IMAGE}:prod \
 		--project ${GCP_PROJECT} \
 		--region ${GCP_REGION} \
 		--memory ${GAR_MEMORY} \
