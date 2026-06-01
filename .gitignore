@@ -19,7 +19,7 @@ build/
 .DS_Store
 
 # Scratch files
-lc1.py
+# lc1.py
 
 # Streamlit
 .streamlit/secrets.toml
